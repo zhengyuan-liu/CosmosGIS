@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{385BFB20-368A-4DB1-B7BB-EFB6209B0F5E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CosmosGIS</RootNamespace>
+    <AssemblyName>Cosmos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enumeration\MapOperation.cs" />
+    <Compile Include="FileReader\CosmosGisVector.cs" />
+    <Compile Include="Geometry\GeometryTools.cs" />
+    <Compile Include="Geometry\MyMultiPolygon.cs" />
+    <Compile Include="Geometry\MyPoint.cs" />
+    <Compile Include="Geometry\MyMultiPolyline.cs" />
+    <Compile Include="Grid\MyGrid.cs" />
+    <Compile Include="LayoutClass\CompassSymbol.cs" />
+    <Compile Include="LayoutClass\LegendSymbol.cs" />
+    <Compile Include="LayoutClass\ScaleSymbol.cs" />
+    <Compile Include="LayoutClass\TextboxSymbol.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Geometry\GeometryFeature.cs" />
+    <Compile Include="Geometry\PolygonFeature.cs" />
+    <Compile Include="Geometry\PolylineFeature.cs" />
+    <Compile Include="Geometry\PointFeature.cs" />
+    <Compile Include="Geometry\MyRectangle.cs" />
+    <Compile Include="MapReader\CGM.cs" />
+    <Compile Include="MapReader\GetType.cs" />
+    <Compile Include="MapRenderer\Renderer.cs" />
+    <Compile Include="MapRenderer\RendererType.cs" />
+    <Compile Include="Map\MyCoordinates.cs" />
+    <Compile Include="Map\MySpaceData.cs" />
+    <Compile Include="Map\MyLayer.cs" />
+    <Compile Include="Map\MyMap.cs" />
+    <Compile Include="Map\MySpaceDataType.cs" />
+    <Compile Include="MySymbol\EnumColor.cs" />
+    <Compile Include="MySymbol\Symbol.cs" />
+    <Compile Include="MySymbol\SymbolType.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Projection\ETCProjection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Property\MyProperty.cs" />
+    <Compile Include="FileReader\Shapefile.cs" />
+    <Compile Include="UI\BriefMapControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\BriefMapControl.designer.cs">
+      <DependentUpon>BriefMapControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ChangeTextSymbol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ChangeTextSymbol.Designer.cs">
+      <DependentUpon>ChangeTextSymbol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CosmosMapPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CosmosMapPanel.Designer.cs">
+      <DependentUpon>CosmosMapPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateNewCGVDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CreateNewCGVDialog.Designer.cs">
+      <DependentUpon>CreateNewCGVDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExportMapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExportMapForm.Designer.cs">
+      <DependentUpon>ExportMapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GettingStartedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GettingStartedForm.Designer.cs">
+      <DependentUpon>GettingStartedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\IdentifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\IdentifyForm.Designer.cs">
+      <DependentUpon>IdentifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LayerPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LayerPropertiesForm.Designer.cs">
+      <DependentUpon>LayerPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AddColumnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AddColumnForm.Designer.cs">
+      <DependentUpon>AddColumnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Layout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Layout.designer.cs">
+      <DependentUpon>Layout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LinerColorSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LinerColorSelect.Designer.cs">
+      <DependentUpon>LinerColorSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LineSymbolSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\LineSymbolSelect.Designer.cs">
+      <DependentUpon>LineSymbolSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PointSymbolSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PointSymbolSelect.designer.cs">
+      <DependentUpon>PointSymbolSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PolygonSymbolSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PolygonSymbolSelect.designer.cs">
+      <DependentUpon>PolygonSymbolSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PropertyTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PropertyTableForm.Designer.cs">
+      <DependentUpon>PropertyTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectByAttributesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SelectByAttributesForm.Designer.cs">
+      <DependentUpon>SelectByAttributesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StartEditingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\StartEditingForm.Designer.cs">
+      <DependentUpon>StartEditingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SelectControl.designer.cs">
+      <DependentUpon>SelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SymbolSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SymbolSelect.designer.cs">
+      <DependentUpon>SymbolSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ToCgvForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ToCgvForm.Designer.cs">
+      <DependentUpon>ToCgvForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\BriefMapControl.resx">
+      <DependentUpon>BriefMapControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ChangeTextSymbol.resx">
+      <DependentUpon>ChangeTextSymbol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CosmosMapPanel.resx">
+      <DependentUpon>CosmosMapPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CreateNewCGVDialog.resx">
+      <DependentUpon>CreateNewCGVDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportMapForm.resx">
+      <DependentUpon>ExportMapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GettingStartedForm.resx">
+      <DependentUpon>GettingStartedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\IdentifyForm.resx">
+      <DependentUpon>IdentifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LayerPropertiesForm.resx">
+      <DependentUpon>LayerPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AddColumnForm.resx">
+      <DependentUpon>AddColumnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Layout.resx">
+      <DependentUpon>Layout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LinerColorSelect.resx">
+      <DependentUpon>LinerColorSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LineSymbolSelect.resx">
+      <DependentUpon>LineSymbolSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PointSymbolSelect.resx">
+      <DependentUpon>PointSymbolSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PropertyTableForm.resx">
+      <DependentUpon>PropertyTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SelectByAttributesForm.resx">
+      <DependentUpon>SelectByAttributesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\StartEditingForm.resx">
+      <DependentUpon>StartEditingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SelectControl.resx">
+      <DependentUpon>SelectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SymbolSelect.resx">
+      <DependentUpon>SymbolSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ToCgvForm.resx">
+      <DependentUpon>ToCgvForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\map.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GenericOpen16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GenericDocument16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GenericSave16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Legend16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\NorthArrow16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Title16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Neatline16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Map16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Layout16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\ScaleBar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\SelectionSelectTool16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\ElementSelectTool16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\IdentifyTool16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\HelpSystem_C_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\BlankDocThumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\SelectionSelectByAttributes16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\SelectionSwitch16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\SelectionClearSelected16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GenericBlueStartArrowNoTail16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GenericBlueLeftArrowNoTail16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GenericBlueRightArrowNoTail16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GenericBlueEndArrowNoTail16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PanUp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomIn.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomOut.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\ZoomInTool16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\ZoomOutTool16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GeoprocessingTool16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\EditingStartEditing16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\EditingStopEditing16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\EditingSaveEdits16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\EditingEditTool16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\EditingCreateFeaturesWindowShow16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\GenericDeleteRed16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\EditingEditVertices16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
